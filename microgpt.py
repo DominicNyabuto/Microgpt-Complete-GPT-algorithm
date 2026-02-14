@@ -28,7 +28,9 @@ print(f"Loaded {len(docs)} names from the dataset.")
 uchars = sorted(
     set("".join(docs))
 )  # unique characters in the docs dataset become token ids 0..n-1
-BOS = len(uchars)  # is the token id for the special BOS (Beginning Of Sequence) token
+BOS = len(
+    uchars
+)  # BOS(Beginning Of Sequence) token-acts as a delimiter:tells the model “a new document starts/ends here”
 vocab_size = len(uchars) + 1  # is the total numver of unique tokens, +1 for BOS
 print(f"vocab_size: {vocab_size}")
 
@@ -226,7 +228,7 @@ def gpt(token_id, pos_id, keys, values):
     return logits
 
 
-# ===STEP 6: Training Loop
+# ===STEP 6: Training Loopi (Optimizer)
 #           Implement the training loop to optimize the model parameters
 # Let there be Adam, the blessed optimizer and its buffers
 learning_rate, beta1, beta2, eps_adam = 0.01, 0.85, 0.99, 1e-8
